@@ -1,0 +1,23 @@
+{
+  "name": "moo-v",
+  "version": "1.0.0",
+  "description": "A code excercise.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fourq/moo-v.git"
+  },
+  "author": {
+    "name": "Rocky Assad",
+    "email": "r@cky.email",
+    "url": "ro.cky.website"
+  },
+  "keywords": [
+    "name:",
+    "(moo-v)"
+  ],
+  "license": "MIT"
+}
