@@ -1,3 +1,6 @@
+/**
+ * Created by fourq on 9/2/15.
+ */
 module.exports = function(config) {
   config.set({
 

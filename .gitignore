@@ -3,3 +3,6 @@ bin
 build
 .DS_Store
 .idea
+src/vendor/angular.min.js
+src/vendor/angular-ui-router.min.js
+src/vendor/bootstrap.min.js
