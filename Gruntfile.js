@@ -8,6 +8,8 @@ module.exports = function(grunt) {
 
     nodeDir: 'node_modules',
 
+    venDir: 'src/vendor',
+
     karma: {
       unit: {
         configFile: 'karma.conf.js'
@@ -19,13 +21,48 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            flatten: true,
+            cwd: '<%= nodeDir %>/angular/',
             src: [
-              '<%= nodeDir %>/angular/angular.min.js',
-              '<%= nodeDir %>/angular-ui-router/release/angular-ui-router.min.js',
-              '<%= nodeDir %>/bootstrap/dist/js/bootstrap.min.js'
+              'angular.min.js',
+              'angular.min.js.map'
             ],
-            dest: 'src/vendor/'
+            dest: '<%= venDir %>/angular/js'
+          },
+          {
+            expand: true,
+            cwd: '<%= nodeDir %>/angular-ui-router/bower_components/',
+            src: [
+              'angular-ui-router.min.js',
+              'angular-ui-router.min.map'
+            ],
+            dest: '<%= venDir %>/angular/js'
+          },
+          {
+            expand: true,
+            cwd: '<%= nodeDir %>/bootstrap/dist/',
+            src: [
+              'js/bootstrap.min.js',
+              'css/**/*',
+              'fonts/**/*'
+            ],
+            dest: '<%= venDir %>/bootstrap'
+          },
+          {
+            expand: true,
+            cwd: '<%= nodeDir %>/jquery/dist/',
+            src: [
+              '**/*'
+            ],
+            dest: '<%= venDir %>/jquery/js'
+          },
+          {
+            expand: true,
+            cwd: '<%= nodeDir %>/font-awesome/',
+            src: [
+              'css/**/*',
+              'fonts/**/*'
+            ],
+            dest: '<%= venDir %>/font-awesome'
           }
         ]
       }

@@ -1,37 +1,23 @@
-<html lang="en">
+<html lang="en" ng-app="moo-v">
 <head>
-  <meta charset="UTF-8">
-  <title>moo-v</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Moo-v</title>
+
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/normalize.css">
   <link rel="stylesheet" href="assets/css/moo-v.css">
 </head>
-<body>
+<body ng-controller="MainCtrl as main">
 <header>
-  <a class="back-btn" style="vertical-align: bottom" href="#">
-    <i class="fa fa-chevron-left fa-inverse"></i>
+  <a ui-sref="movies" class="navbar-brand">
+    <i class="fa fa-chevron-left fa-inverse fa-lg"></i>
   </a>
 </header>
 <div id="main">
   <article>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
-    article<br/>
+    <div ui-view class="content"></div>
   </article>
   <nav>
     <a class="reorder-btn" href="#">
@@ -39,5 +25,9 @@
     </a>
   </nav>
 </div>
+
+<script src="vendor/angular.min.js"></script>
+<script src="vendor/angular-ui-router.min.js"></script>
+<script src="vendor/bootstrap.min.js"></script>
 </body>
 </html>

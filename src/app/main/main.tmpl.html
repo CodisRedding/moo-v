@@ -1,0 +1,7 @@
+<div tiles>
+  <div class="block" ng-repeat="(movieId, movie) in movies">
+    <h3>{{movie.title}}</h3>
+    <p>{{movie.description}}</p>
+    <a href="#/movies/{{movieId}}" class="btn">View</a>
+  </div>
+</div>
