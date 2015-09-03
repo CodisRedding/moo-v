@@ -14,7 +14,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'node_modules/angular/angular.js',
-      'src/vendor/angular-ui-router.min.js',
+      'src/vendor/angular-gridster/angular-gridster.min.js',
+      'src/vendor/angular-ui-router/js/angular-ui-router.min.js',
       'src/app/moo-v.js',
       'src/app/**/*.js',
       'src/app/**/*.html',

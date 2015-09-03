@@ -19,14 +19,15 @@ angular.module('moo-v', [
   })
   .constant('ROTTEN_TOMATOES_API', {
     "URI": "http://api.rottentomatoes.com/api/public/v1.0",
-    "IN_THEATERS_LIST_URI_PATH": "/lists/movies/in_theaters.json?apikey=gjx4ndzskz5zku8quke796re&page_limit=50"
+    "IN_THEATERS_LIST_URI_PATH": "/lists/movies/in_theaters.json?apikey=gjx4ndzskz5zku8quke796re&page_limit=50&callback=JSON_CALLBACK"
   })
   .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/movies');
 
     $stateProvider
       .state('movies', {
         url:'/movies',
-        templateUrl: 'app/movies/movies-mdv.tmpl.html',
+        templateUrl: 'app/movies/movies.tmpl.html',
         controller: 'MoviesCtrl',
         controllerAs: 'ctrl'
       });

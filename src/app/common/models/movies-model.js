@@ -4,14 +4,15 @@
 'use strict';
 
 angular.module('moo-v.common')
-  .service('MoviesModel', function ($http, ROTTEN_TOMATOES_API, OMDB_API, _) {
+  .service('MoviesModel', function ($http, ROTTEN_TOMATOES_API, OMDB_API) {
     var service = this;
 
-    function extractListData(result) {
+    function extractMovieListData(result) {
 
-      var ret = _.map(result.movies, function (movie) {
+      console.log('result:', result.data.movies);
+
+      var ret = _.map(result.data.movies, function (movie) {
         return {
-          id: movie.id,
           title: movie.title,
           year: movie.year,
           rating: movie.mpaa_rating,
@@ -19,8 +20,13 @@ angular.module('moo-v.common')
         };
       });
 
-      console.log('ret:', ret);
+      console.log('extractMovieListData:', ret);
       return ret;
+    }
+
+    function extractMovieData(result) {
+      console.log('extractMovieData:', result);
+      return result;
     }
 
     function getMoviesListUrl() {
@@ -43,7 +49,7 @@ angular.module('moo-v.common')
     }
 
     service.fetchList = function () {
-      return $http.get(getMoviesListUrl()).then(extractListData);
+      return $http.jsonp(getMoviesListUrl()).then(extractMovieListData);
     };
 
     service.fetchById = function (movieId) {
@@ -56,5 +62,5 @@ angular.module('moo-v.common')
 
     service.fetchByTitleAndYear = function (movieTitle, movieYear) {
       return $http.get(getUrlForTitle(movieTitle, movieYear)).then(extract);
-    }
+    };
   });

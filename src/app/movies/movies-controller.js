@@ -9,14 +9,14 @@ angular.module('moo-v')
 
     ctrl.loading = false;
 
-    ctrl.getBoards = function () {
-      BoardsModel.all()
+    ctrl.getMovies = function () {
+      MoviesModel.fetchList()
         .then(function (result) {
-          ctrl.boards = (result !== 'null') ? result : {};
+          ctrl.movies = (result !== 'null') ? result : {};
         }, function () {
           // derp
         });
     };
 
-    ctrl.getBoards();
+    ctrl.getMovies();
   });
