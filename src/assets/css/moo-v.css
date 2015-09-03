@@ -1,4 +1,54 @@
 body {
-    padding-top: 70px;
-    background-color: black;
+    font: 24px Helvetica;
+    background: #000;
+}
+
+#main {
+    margin: 0px;
+    padding: 0px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+
+#main > article {
+    overflow: auto;
+    max-height: 100%;
+    padding: 5px;
+    background: #282828;
+    -webkit-flex: 3 1 90%;
+    flex: 3 1 90%;
+    -webkit-order: 2;
+    order: 2;
+}
+
+#main > nav {
+    max-width: 60px;
+    min-width: 60px;
+    padding: 5px;
+    background: #202020;
+    -webkit-flex: 1 6 10%;
+    flex: 1 6 10%;
+    -webkit-order: 1;
+    order: 1;
+}
+
+header {
+    display: block;
+    padding: 5px;
+    min-height: 60px;
+    background: #000;
+}
+
+a.home-btn {
+    padding: 5px;
+}
+
+a.back-btn {
+    padding: 5px;
+}
+
+a.reorder-btn {
+    padding: 10px;
 }
