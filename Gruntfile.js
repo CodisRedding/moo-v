@@ -30,12 +30,11 @@ module.exports = function(grunt) {
           },
           {
             expand: true,
-            cwd: '<%= nodeDir %>/angular-ui-router/bower_components/',
+            cwd: '<%= nodeDir %>/angular-ui-router/build/',
             src: [
-              'angular-ui-router.min.js',
-              'angular-ui-router.min.map'
+              'angular-ui-router.min.js'
             ],
-            dest: '<%= venDir %>/angular/js'
+            dest: '<%= venDir %>/angular-ui-router/js'
           },
           {
             expand: true,

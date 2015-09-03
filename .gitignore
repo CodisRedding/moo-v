@@ -3,7 +3,4 @@ bin
 build
 .DS_Store
 .idea
-src/vendor/angular
-src/vendor/bootstrap
-src/vendor/font-awesome
-src/vendor/jquery
+src/vendor/*
