@@ -69,6 +69,15 @@ module.exports = function(grunt) {
               'fonts/**/*'
             ],
             dest: '<%= venDir %>/font-awesome'
+          },
+          {
+            expand: true,
+            cwd: '<%= nodeDir %>/underscore/',
+            src: [
+              'underscore-min.js',
+              'underscore-min.map'
+            ],
+            dest: '<%= venDir %>/underscore/js'
           }
         ]
       }

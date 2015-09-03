@@ -3,6 +3,11 @@
  */
 'use strict';
 
+angular.module('underscore', [])
+  .factory('_', function () {
+    return window._;
+  });
+
 angular.module('moo-v', [
   'ui.router',
   'moo-v.common'
@@ -14,7 +19,7 @@ angular.module('moo-v', [
   })
   .constant('ROTTEN_TOMATOES_API', {
     "URI": "http://api.rottentomatoes.com/api/public/v1.0",
-    "IN_THEATERS_URI_PATH": "/lists/movies/in_theaters.json?apikey=gjx4ndzskz5zku8quke796re&page_limit=50"
+    "IN_THEATERS_LIST_URI_PATH": "/lists/movies/in_theaters.json?apikey=gjx4ndzskz5zku8quke796re&page_limit=50"
   })
   .config(function ($stateProvider, $urlRouterProvider) {
 

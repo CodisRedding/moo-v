@@ -4,38 +4,57 @@
 'use strict';
 
 angular.module('moo-v.common')
-  .service('MoviesModel', function ($http, ROTTEN_TOMATOES_API) {
+  .service('MoviesModel', function ($http, ROTTEN_TOMATOES_API, OMDB_API, _) {
     var service = this;
 
-    function extract(result) {
-      return result.data;
+    function extractListData(result) {
+
+      var ret = _.map(result.movies, function (movie) {
+        return {
+          id: movie.id,
+          title: movie.title,
+          year: movie.year,
+          rating: movie.mpaa_rating,
+          image: movie.posters.thumbnail
+        };
+      });
+
+      console.log('ret:', ret);
+      return ret;
     }
 
-    function getUrl() {
-      return ROTTEN_TOMATOES_API.URI;
+    function getMoviesListUrl() {
+      return ROTTEN_TOMATOES_API.URI + ROTTEN_TOMATOES_API.IN_THEATERS_LIST_URI_PATH;
     }
 
     function getUrlForId(movieId) {
-      return ENDPOINT_URI + 'users/' + UserModel.getCurrentUser() + '/boards/' + boardId + '.json';
+      return (OMDB_API.URI + OMDB_API.SEARCH_BY_ID_URI_PATH)
+        .replace('ID', movieId);
     }
 
-    service.all = function () {
-      return $http.get(getUrl()).then(extract);
+    function getUrlForTitle(movieTitle, movieYear) {
+      if (!movieYear) {
+        movieYear = '';
+      }
+
+      return (OMDB_API.URI + OMDB_API.SEARCH_BY_TITLE_URI_PATH)
+        .replace('TITLE', movieTitle)
+        .replace('YEAR', movieYear);
+    }
+
+    service.fetchList = function () {
+      return $http.get(getMoviesListUrl()).then(extractListData);
     };
 
-    service.fetch = function (boardId) {
-      return $http.get(getUrlForId(boardId)).then(extract);
+    service.fetchById = function (movieId) {
+      return $http.get(getUrlForId(movieId)).then(extract);
     };
 
-    service.create = function (board) {
-      return $http.post(getUrl(), board).then(extract);
+    service.fetchByTitle = function (movieTitle) {
+      return $http.get(getUrlForTitle(movieTitle)).then(extract);
     };
 
-    service.update = function (boardId, board) {
-      return $http.put(getUrlForId(boardId), board).then(extract);
-    };
-
-    service.destroy = function (boardId) {
-      return $http.delete(getUrlForId(boardId)).then(extract);
-    };
+    service.fetchByTitleAndYear = function (movieTitle, movieYear) {
+      return $http.get(getUrlForTitle(movieTitle, movieYear)).then(extract);
+    }
   });
