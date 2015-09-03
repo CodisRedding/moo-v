@@ -7,6 +7,15 @@ angular.module('moo-v', [
   'ui.router',
   'moo-v.common'
 ])
+  .constant('OMDB_API', {
+    "URI": "http://www.omdbapi.com",
+    "SEARCH_BY_TITLE_URI_PATH": "/?t={TITLE}&y={YEAR}&plot=full&r=json",
+    "SEARCH_BY_ID_URI_PATH": "/?i={ID}&plot=full&r=json"
+  })
+  .constant('ROTTEN_TOMATOES_API', {
+    "URI": "http://api.rottentomatoes.com/api/public/v1.0",
+    "IN_THEATERS_URI_PATH": "/lists/movies/in_theaters.json?apikey=gjx4ndzskz5zku8quke796re&page_limit=50"
+  })
   .config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider

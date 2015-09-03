@@ -37,6 +37,14 @@ module.exports = function(grunt) {
           },
           {
             expand: true,
+            cwd: '<%= nodeDir %>/angular-gridster/dist',
+            src: [
+              '**/*'
+            ],
+            dest: '<%= venDir %>/angular-gridster'
+          },
+          {
+            expand: true,
             cwd: '<%= nodeDir %>/bootstrap/dist/',
             src: [
               'js/bootstrap.min.js',
