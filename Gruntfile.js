@@ -7,7 +7,6 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     nodeDir: 'node_modules',
-
     venDir: 'src/vendor',
 
     karma: {
