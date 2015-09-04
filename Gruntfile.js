@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 
     nodeDir: 'node_modules',
     venDir: 'src/vendor',
+    bowerDir: 'bower_components',
 
     karma: {
       unit: {
@@ -78,6 +79,14 @@ module.exports = function(grunt) {
               'underscore-min.map'
             ],
             dest: '<%= venDir %>/underscore/js'
+          },
+          {
+            expand: true,
+            cwd: '<%= bowerDir %>/angular-deckgrid/',
+            src: [
+              'angular-deckgrid.js'
+            ],
+            dest: '<%= venDir %>/angular-deckgrid/js'
           }
         ]
       }

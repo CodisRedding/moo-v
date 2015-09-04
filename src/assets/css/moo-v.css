@@ -1,7 +1,6 @@
 body {
-    font: 24px Helvetica;
+    font-size: 12px;
     background: #000;
-    overflow: hidden;
 }
 
 #main {
@@ -18,7 +17,7 @@ body {
     max-height: 100%;
     min-height: 100%;
     padding: 5px;
-    background: #282828;
+    background: #1f1f1f;
     -webkit-flex: 3 1 90%;
     flex: 3 1 90%;
     -webkit-order: 2;
@@ -29,7 +28,7 @@ body {
     max-width: 60px;
     min-width: 60px;
     padding: 5px;
-    background: #202020;
+    background: #0a0a0a;
     -webkit-flex: 1 6 10%;
     flex: 1 6 10%;
     -webkit-order: 1;
@@ -37,6 +36,7 @@ body {
 }
 
 header {
+    top: 0;
     display: block;
     padding: 5px;
     min-height: 60px;
@@ -45,4 +45,67 @@ header {
 
 a.reorder-btn {
     padding: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.deckgrid[deckgrid]::before {
+    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
+    content: '7 .column.column-1-7';
+    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
+    visibility: hidden;
+}
+
+.deckgrid .column {
+    float: left;
+}
+
+.deckgrid .column-1-7 {
+    width: 14%;
+}
+
+.a-card {
+    height: 300px;
+    color: #eee;
+    padding: 20px;
+    text-align: left
+}
+
+.a-card > img {
+    width: 150px;
+    height: 225px;
+}
+
+.a-card > img:hover {
+    border: 2px solid #ffA500;
+}
+
+.a-card .title {
+    color: #eee;
+}
+
+.a-card .year {
+    color: #ccc;
+}
+
+.deckgrid .column-1-1 {
+    width: 100%;
+}
+
+.deckgrid .column-3-3 {
+    width: 33%;
+}
+
+@media screen and (max-width: 480px){
+    .deckgrid[deckgrid]::before {
+        content: '1 .column.column-1-1';
+    }
+}
+
+@media screen and (max-width: 680px) and (min-width: 481px){
+    .deckgrid[deckgrid]::before {
+        content: '3 .column.column-3-3';
+    }
 }

@@ -10,7 +10,8 @@ angular.module('underscore', [])
 
 angular.module('moo-v', [
   'ui.router',
-  'moo-v.common'
+  'moo-v.common',
+  'akoenig.deckgrid'
 ])
   .constant('OMDB_API', {
     "URI": "http://www.omdbapi.com",

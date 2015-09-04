@@ -8,10 +8,7 @@ angular.module('moo-v.common')
     var service = this;
 
     function extractMovieListData(result) {
-
-      console.log('result:', result.data.movies);
-
-      var ret = _.map(result.data.movies, function (movie) {
+      return _.map(result.data.movies, function (movie) {
         return {
           title: movie.title,
           year: movie.year,
@@ -19,9 +16,6 @@ angular.module('moo-v.common')
           image: movie.posters.thumbnail
         };
       });
-
-      console.log('extractMovieListData:', ret);
-      return ret;
     }
 
     function extractMovieData(result) {
@@ -53,14 +47,14 @@ angular.module('moo-v.common')
     };
 
     service.fetchById = function (movieId) {
-      return $http.get(getUrlForId(movieId)).then(extract);
+      return $http.jsonp(getUrlForId(movieId)).then(extractMovieData);
     };
 
     service.fetchByTitle = function (movieTitle) {
-      return $http.get(getUrlForTitle(movieTitle)).then(extract);
+      return $http.jsonp(getUrlForTitle(movieTitle)).then(extractMovieData);
     };
 
     service.fetchByTitleAndYear = function (movieTitle, movieYear) {
-      return $http.get(getUrlForTitle(movieTitle, movieYear)).then(extract);
+      return $http.jsonp(getUrlForTitle(movieTitle, movieYear)).then(extractMovieData);
     };
   });
