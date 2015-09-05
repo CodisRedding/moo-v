@@ -19,9 +19,17 @@ angular.module('moo-v.common')
     }
 
     function extractMovieData(result) {
-      console.log('extractMovieData:', result.data);
       if (result.data.imdbRating) {
         result.data.imdbRating = Math.round(result.data.imdbRating);
+      }
+      console.log('res:', result);
+      if (result.data.Response === 'False') {
+        result.data.Poster = 'http://img4.wikia.nocookie.net/__cb20120318034910/glee/images/a/a0/Y-u-no.png';
+        result.data.Title = '   No Information Found at OMDB';
+        result.data.Director = 'N/A';
+        result.data.Writer = 'N/A';
+        result.data.Actors = 'N/A';
+        result.data.Language = 'N/A';
       }
       return result.data;
     }

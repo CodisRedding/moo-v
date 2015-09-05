@@ -9,17 +9,17 @@ angular.module('moo-v')
       movieTitle = encodeURIComponent($stateParams.title),
       movieYear = encodeURIComponent($stateParams.year);
 
-    console.log('movieTitle', movieTitle);
-    console.log('movieYear', movieYear);
-
     ctrl.goBack = function () {
       $state.go('movies');
     };
 
     ctrl.getMovie = function () {
+      NProgress.start();
       MoviesModel.fetchByTitleAndYear(movieTitle, movieYear)
         .then(function (movie) {
           ctrl.movie = (movie !== 'null') ? movie : {};
+          console.log(movie);
+          NProgress.done();
         }, function (reason) {
           console.log('error in getMovie():', reason);
         });

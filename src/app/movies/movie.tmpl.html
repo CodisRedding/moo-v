@@ -21,11 +21,12 @@
   td {
     height: 27px;
   }
+
 </style>
 
-<div class="movie-box">
+<div class="movie-box ng-hide" ng-show="ctrl.movie != null">
   <div class="movie-poster">
-    <img src="{{ctrl.movie.Poster}}">
+    <img src="{{ctrl.movie.Poster}}" style="width: 300px; height: 445px;">
   </div>
   <div class="movie-details-box">
     <div class="movie-details">
@@ -42,18 +43,18 @@
         </tr>
         <tr><td>&nbsp;</td></tr>
         <tr>
-          <td><strong style="color: grey;">DIRECTOR</strong> {{ctrl.movie.Director}}</td>
-          <td align="right"><input-stars max="10" ng-model="ctrl.movie.imdbRating"></input-stars></td>
+          <td nowrap><strong style="color: grey;">DIRECTOR</strong> {{ctrl.movie.Director}}</td>
+          <td nowrap align="right"><input-stars max="10" ng-model="ctrl.movie.imdbRating"></input-stars></td>
         </tr>
         <tr>
-          <td colspan="2"><strong style="color: grey;">WRITER</strong> {{ctrl.movie.Writer}}</td>
+          <td nowrap colspan="2"><strong style="color: grey;">WRITER</strong> {{ctrl.movie.Writer}}</td>
         </tr>
         <tr>
-          <td colspan="2"><strong style="color: grey;">CAST</strong> {{ctrl.movie.Actors}}</td>
+          <td nowrap colspan="2"><strong style="color: grey;">CAST</strong> {{ctrl.movie.Actors}}</td>
         </tr>
         <tr>
-          <td><strong style="color: grey;">LANGUAGE</strong> {{ctrl.movie.Language}}</td>
-          <td align="right"><h2>{{ctrl.movie.Rated}}</h2></td>
+          <td nowrap><strong style="color: grey;">LANGUAGE</strong> {{ctrl.movie.Language}}</td>
+          <td nowrap align="right"><h2>{{ctrl.movie.Rated}}</h2></td>
         </tr>
         <tr>
           <td colspan="2">

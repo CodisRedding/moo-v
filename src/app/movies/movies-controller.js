@@ -8,9 +8,11 @@ angular.module('moo-v')
     var ctrl = this;
 
     ctrl.getMovies = function () {
+      NProgress.start();
       MoviesModel.fetchList()
         .then(function (result) {
           ctrl.movies = (result !== 'null') ? result : {};
+          NProgress.done();
         }, function (reason) {
           console.log('error in getMovies():', reason);
         });
