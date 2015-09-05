@@ -11,8 +11,8 @@ angular.module('moo-v')
       MoviesModel.fetchList()
         .then(function (result) {
           ctrl.movies = (result !== 'null') ? result : {};
-        }, function () {
-          console.log('error in getMovies');
+        }, function (reason) {
+          console.log('error in getMovies():', reason);
         });
     };
 

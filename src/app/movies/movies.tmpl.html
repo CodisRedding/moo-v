@@ -1,9 +1,9 @@
 <div deckgrid class="deckgrid" source="ctrl.movies">
-  <a href="#">
-  <div class="a-card">
-    <img src="" data-ng-src="{{card.image}}">
-    <h5 class="title">{{card.title}}</h5>
-    <h5 class="year">{{card.year}}</h5>
-  </div>
+  <a ui-sref="movie({title: card.title, year: card.year})">
+    <div class="a-card">
+      <img src="" data-ng-src="{{card.image}}">
+      <h5 class="title">{{card.title}}</h5>
+      <h5 class="year">{{card.year}}</h5>
+    </div>
   </a>
 </div>

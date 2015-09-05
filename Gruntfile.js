@@ -87,6 +87,15 @@ module.exports = function(grunt) {
               'angular-deckgrid.js'
             ],
             dest: '<%= venDir %>/angular-deckgrid/js'
+          },
+          {
+            expand: true,
+            cwd: '<%= bowerDir %>/angular-input-stars-directive/',
+            src: [
+              'angular-input-stars.js',
+              'angular-input-stars.css'
+            ],
+            dest: '<%= venDir %>/angular-input-stars-directive'
           }
         ]
       }

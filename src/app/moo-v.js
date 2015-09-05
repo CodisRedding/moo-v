@@ -11,12 +11,13 @@ angular.module('underscore', [])
 angular.module('moo-v', [
   'ui.router',
   'moo-v.common',
-  'akoenig.deckgrid'
+  'akoenig.deckgrid',
+  'angular-input-stars'
 ])
   .constant('OMDB_API', {
     "URI": "http://www.omdbapi.com",
-    "SEARCH_BY_TITLE_URI_PATH": "/?t={TITLE}&y={YEAR}&plot=full&r=json",
-    "SEARCH_BY_ID_URI_PATH": "/?i={ID}&plot=full&r=json"
+    "SEARCH_BY_TITLE_URI_PATH": "/?t={TITLE}&y={YEAR}&plot=full&r=json&callback=JSON_CALLBACK",
+    "SEARCH_BY_ID_URI_PATH": "/?i={ID}&plot=full&r=json&callback=JSON_CALLBACK"
   })
   .constant('ROTTEN_TOMATOES_API', {
     "URI": "http://api.rottentomatoes.com/api/public/v1.0",
@@ -31,5 +32,16 @@ angular.module('moo-v', [
         templateUrl: 'app/movies/movies.tmpl.html',
         controller: 'MoviesCtrl',
         controllerAs: 'ctrl'
+      })
+      .state('movie', {
+        url: '/movie/:title/:year',
+        templateUrl: 'app/movies/movie.tmpl.html',
+        controller: 'MovieCtrl',
+        controllerAs: 'ctrl'
       });
+  })
+  .run(function ($rootScope, $state) {
+    $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+      event.preventDefault();
+    });
   });

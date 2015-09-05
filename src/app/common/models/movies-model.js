@@ -19,8 +19,11 @@ angular.module('moo-v.common')
     }
 
     function extractMovieData(result) {
-      console.log('extractMovieData:', result);
-      return result;
+      console.log('extractMovieData:', result.data);
+      if (result.data.imdbRating) {
+        result.data.imdbRating = Math.round(result.data.imdbRating);
+      }
+      return result.data;
     }
 
     function getMoviesListUrl() {
@@ -29,7 +32,7 @@ angular.module('moo-v.common')
 
     function getUrlForId(movieId) {
       return (OMDB_API.URI + OMDB_API.SEARCH_BY_ID_URI_PATH)
-        .replace('ID', movieId);
+        .replace('{ID}', movieId);
     }
 
     function getUrlForTitle(movieTitle, movieYear) {
@@ -38,8 +41,8 @@ angular.module('moo-v.common')
       }
 
       return (OMDB_API.URI + OMDB_API.SEARCH_BY_TITLE_URI_PATH)
-        .replace('TITLE', movieTitle)
-        .replace('YEAR', movieYear);
+        .replace('{TITLE}', movieTitle)
+        .replace('{YEAR}', movieYear);
     }
 
     service.fetchList = function () {
