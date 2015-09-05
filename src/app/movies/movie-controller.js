@@ -18,7 +18,6 @@ angular.module('moo-v')
       MoviesModel.fetchByTitleAndYear(movieTitle, movieYear)
         .then(function (movie) {
           ctrl.movie = (movie !== 'null') ? movie : {};
-          console.log(movie);
           NProgress.done();
         }, function (reason) {
           console.log('error in getMovie():', reason);
