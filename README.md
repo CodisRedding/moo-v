@@ -7,7 +7,6 @@ Before you start, you will need:
 * [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Node.js and Node Package Manager (NPM)](https://nodejs.org/download/)
 * [Serve (NPM)] (https://www.npmjs.com/package/serve)
-* [Grunt-cli (NPM)] (https://www.npmjs.com/package/grunt-cli)
 
 Get the Code
 ------------
@@ -24,7 +23,7 @@ npm install -g serve
 serve src/
 ```
 
-Navigate to `http://localhost:3000` and view the movies!
+Navigate to `http://localhost:3000` and view the movies.
 
 Testing
 -------
