@@ -96,6 +96,15 @@ module.exports = function(grunt) {
               'angular-input-stars.css'
             ],
             dest: '<%= venDir %>/angular-input-stars-directive'
+          },
+          {
+            expand: true,
+            cwd: '<%= bowerDir %>/nprogress/',
+            src: [
+              'nprogress.js',
+              'nprogress.css'
+            ],
+            dest: '<%= venDir %>/nprogress'
           }
         ]
       }
