@@ -16,6 +16,17 @@ module.exports = function(grunt) {
       }
     },
 
+    sass: {
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          'src/assets/css/moo-v.css': 'src/assets/sass/moo-v.sass'
+        }
+      }
+    },
+
     copy: {
       vendor: {
         files: [
@@ -113,6 +124,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-sass');
 
   grunt.registerTask('test', ['karma']);
   grunt.registerTask('update-vendor', ['copy']);
