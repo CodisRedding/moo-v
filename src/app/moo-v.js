@@ -10,6 +10,7 @@ angular.module('underscore', [])
 
 angular.module('moo-v', [
   'ui.router',
+  'ngResource',
   'moo-v.common',
   'akoenig.deckgrid',
   'angular-input-stars'

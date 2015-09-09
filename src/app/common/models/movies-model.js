@@ -11,28 +11,32 @@ angular.module('moo-v.common')
       return _.map(result.data.movies, function (movie) {
         return {
           title: movie.title,
-          year: movie.year,
-          rating: movie.mpaa_rating,
+          year: movie.year, rating: movie.mpaa_rating,
           image: movie.posters.thumbnail
         };
       });
     }
 
     function extractMovieData(result) {
-      if (result.data.imdbRating) {
-        result.data.imdbRating = Math.round(result.data.imdbRating);
+
+      var data = result.data;
+
+      if (data) {
+        if (data.imdbRating) {
+          data.imdbRating = Math.round(data.imdbRating);
+        }
+      } else {
+        data = {
+          Poster: 'http://img4.wikia.nocookie.net/__cb20120318034910/glee/images/a/a0/Y-u-no.png',
+          Title: 'Information Found at OMDB',
+          Director: 'N/A',
+          Writer: 'N/A',
+          Actors: 'N/A',
+          Language: 'N/A'
+        }
       }
 
-      if (result.data.Response === 'False') {
-        result.data.Poster = 'http://img4.wikia.nocookie.net/__cb20120318034910/glee/images/a/a0/Y-u-no.png';
-        result.data.Title = '   No Information Found at OMDB';
-        result.data.Director = 'N/A';
-        result.data.Writer = 'N/A';
-        result.data.Actors = 'N/A';
-        result.data.Language = 'N/A';
-      }
-
-      return result.data;
+      return data;
     }
 
     function getMoviesListUrl() {

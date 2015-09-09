@@ -116,6 +116,14 @@ module.exports = function(grunt) {
               'nprogress.css'
             ],
             dest: '<%= venDir %>/nprogress'
+          },
+          {
+            expand: true,
+            cwd: '<%= nodeDir %>/angular-resource',
+            src: [
+              'angular-resource.min.js'
+            ],
+            dest: '<%= venDir %>/angular-resource'
           }
         ]
       }
