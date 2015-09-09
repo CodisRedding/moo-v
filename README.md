@@ -25,6 +25,11 @@ serve src/
 
 Navigate to `http://localhost:3000` and view the movies.
 
+Note*
+
+The initial movie listing is from the Rotten Tomatoes API.
+The individual movie details are from the OMDB API.
+
 Testing
 -------
 
